@@ -6,7 +6,7 @@
 import React, { useCallback, useEffect } from 'react';
 import {
   View,
-  Text,
+
   StyleSheet,
   ActivityIndicator,
   RefreshControl,
@@ -37,7 +37,7 @@ import {
   selectIsStale,
 } from '../store/slices/booksSlice';
 import { useAppState } from '../hooks/useAppState';
-import { useTheme, Typography, Spacing, FontSizes } from '../theme';
+import { useTheme, Typography, Spacing } from '../theme';
 import type { Book } from '../types';
 import type { TabScreenProps } from '../navigation/types';
 

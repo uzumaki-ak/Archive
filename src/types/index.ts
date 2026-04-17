@@ -51,7 +51,7 @@ export interface BooksState {
 export interface SearchState {
   query: string;
   results: Book[];
-  status: 'idle' | 'loading' | 'succeeded' | 'failed';
+  status: 'idle' | 'loading' | 'loadingMore' | 'succeeded' | 'failed';
   error: string | null;
   page: number;
   hasMore: boolean;

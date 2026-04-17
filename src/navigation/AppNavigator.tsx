@@ -10,7 +10,7 @@
  *   └── DetailScreen
  */
 
-import React, { useCallback } from 'react';
+import React from 'react';
 import { View, Text, StyleSheet, Platform, Pressable, Dimensions } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -19,7 +19,6 @@ import Animated, {
   useSharedValue,
   useAnimatedStyle,
   withSpring,
-  interpolateColor,
 } from 'react-native-reanimated';
 import Icon from 'react-native-vector-icons/Feather';
 
@@ -28,7 +27,7 @@ import SearchScreen from '../screens/SearchScreen';
 import DetailScreen from '../screens/DetailScreen';
 import SavedScreen from '../screens/SavedScreen';
 
-import { Typography, FontSizes, Spacing, useTheme } from '../theme';
+import { Typography, useTheme } from '../theme';
 import type { RootStackParamList, MainTabParamList } from './types';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();

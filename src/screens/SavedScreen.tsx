@@ -18,7 +18,7 @@ import Icon from 'react-native-vector-icons/Feather';
 
 import BookCard from '../components/BookCard';
 import { EmptyState } from '../components';
-import { ThemedHeading, ThemedText } from '../components/common/Typography';
+import { ThemedHeading } from '../components/common/Typography';
 import { useAppDispatch, useAppSelector } from '../store';
 import {
   selectSavedBooks,

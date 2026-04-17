@@ -49,7 +49,7 @@ export default function DetailScreen({ route, navigation }: Props) {
   const dispatch = useAppDispatch();
   const insets = useSafeAreaInsets();
   const isSaved = useAppSelector(selectIsSaved(book.key));
-  const { colors, isDark } = useTheme();
+  const { colors } = useTheme();
 
   const [detail, setDetail] = useState<BookDetail | null>(null);
   const [detailLoading, setDetailLoading] = useState(false);
