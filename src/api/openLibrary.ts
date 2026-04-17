@@ -10,7 +10,6 @@
  */
 
 import type {
-  Book,
   BookDetail,
   BookSearchResponse,
   FetchBooksParams,
