@@ -38,6 +38,19 @@ function buildUrl(path: string, params: Record<string, string | number>): string
   return url.toString();
 }
 
+function getUserFriendlyErrorMessage(status: number): string {
+  switch (status) {
+    case 404: return 'We could not find what you were looking for.';
+    case 422: return 'Invalid search query. Please try different keywords.';
+    case 429: return 'You are searching too fast. Please wait a moment and try again.';
+    case 500:
+    case 502:
+    case 503:
+    case 504: return 'The public library is currently experiencing downtime. Please try again later.';
+    default: return 'Something went wrong while connecting to the library.';
+  }
+}
+
 async function fetchWithTimeout<T>(
   url: string,
   signal?: AbortSignal,
@@ -61,7 +74,7 @@ async function fetchWithTimeout<T>(
 
     if (!response.ok) {
       throw new ApiError(
-        `HTTP ${response.status}: ${response.statusText}`,
+        getUserFriendlyErrorMessage(response.status),
         response.status,
       );
     }
@@ -74,11 +87,11 @@ async function fetchWithTimeout<T>(
     if (err instanceof ApiError) throw err;
 
     if ((err as Error).name === 'AbortError') {
-      throw new ApiError('Request timed out or was cancelled', 408);
+      throw new ApiError('Request timed out. Please check your internet connection.', 408);
     }
 
     throw new ApiError(
-      `Network error: ${(err as Error).message}`,
+      'Unable to connect. Please check your internet connection.',
       0,
     );
   }
