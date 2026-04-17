@@ -41,8 +41,8 @@ The aesthetic is "Modern Library" — minimalist, spacious, and tactile — usin
 ### Install
 
 ```bash
-git clone https://github.com/yourusername/the-archive.git
-cd the-archive
+git clone https://github.com/uzumaki-ak/Archive.git
+cd Archive
 npm install
 
 # iOS only
